@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  color: #EEEEEE;
+  background-color: #393E46;
+  position: relative;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html {
+  height: 100%;
+  margin: 0;
 }
+/* #222831  Black*/
+/* #393E46  Grey*/ 
+/* #00cdd7  Sky Blue*/
+/* #EEEEEE  White*/
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* ================================= Navbar ================================= */
+
+.navbar-style{
+  background-color: #222831;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
+.search-btn{
+  width: 180px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222831;
+  cursor: pointer;
+  border: none;
+  background-size: 400%;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  border-radius: 50px;
+  -o-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+
+  background-image: linear-gradient(to right, #EEEEEE, #00cdd7);
+
+}
+.search-btn:hover {
+  background-position: 100% 0;
+  -o-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.search-bar{
+  border: none;
+  border-radius: 50px;
+}
+.brand-parent-div{
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.brand-name{
+  margin: 0;
+  margin-left: 10px;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+.navbar-logo{
+  max-width: 40px;
+}
+
+
+@media (max-width: 768px) {  
+  .nav-item {
+  	padding: 5px!important;
+  }
+}
+/* ================================= Footer ================================= */
+.footer-style{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;   
+  background-color: #222831;
+}
+/* ================================= Banner ================================= */
+
+.banner {
+  height: 80px;
+  background-color: #00cdd7;
+  position: relative;
+}
+.banner-title{
+  color: #222831;
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+}
+@media (max-width: 768px) {  
+  .banner {
+  	padding: 5px!important;
+  }
+}
+/* ================================= Card ================================= */
+
+.poster-img{
+  border-radius: 5px;
+  display: block;
+}
+.grow { 
+  position: relative;
+  transition: all .2s ease-in-out; 
+}
+.grow:hover { 
+  transform: scale(1.2); 
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+.grow:hover .movie-details  {
+  /*becomes visible on hover*/
+  opacity: 1;       
+}
+.movie-details {
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), #222831);
+  /*positioned relative to parent div (grow) */
+  position: absolute;   
+  /* bottom margin is 0 so that it
+  coincides with container's bottom margin*/
+  bottom: 0;           
   color: white;
+  width: 100%;
+  height: 50%;
+  padding: 0 10px;
+  /*invisible because opacity is 0*/
+  opacity: 0;           
+  transition: 0.6s;
+  border-radius: 5px;
+  cursor: context-menu;
+}
+.movie-title {
+  font-weight: 500;
+}
+.description{
+  font-size: 10px;
+}
+.description-bottom{
+  font-size: 10px;
+  font-weight: 500;
+  position: absolute;  
+  bottom: 0;           
+  padding: 5px; 
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 576px) {  
+  .movie-card {
+  	padding: 20px 50px !important;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ================================= Movie Detail ================================= */
+.bg-container{
+  margin-top: 10px;
+  padding-bottom: 50px;
+  position: relative;
+  height: fit-content;
+  background-image: linear-gradient(to right,#222831f4, #000000c8, #000000a4);
+}
+.bg-poster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+.detail-poster{
+  border-radius: 5px;
+  border: 2px solid #00cdd7;
+}
+.stickey-tabs{
+  width: fit-content;
+  font-weight: 700;
+  color: #00cdd7;
+  border-radius: 50px;
+  display:inline;
+  margin-right: 10px;
+}
+.geners{
+  padding: 5px 15px;
+  font-weight: normal;
+  border-radius: 5px;
+  border: 1px solid #00cdd7;
+}
+.producer{
+  padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  max-height: 80px;
+  background-color: white;
+  border-radius: 5px;
+  max-width: 250px;
 }
