@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Banner from './Banner'
+import poster from '../default-poster.png'
 
 function MovieView() {
 
@@ -9,7 +10,7 @@ function MovieView() {
     const [isLoading, setIsLoading] = useState(true)
 
     var style = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}")`,
+        backgroundImage: movieDetails.backdrop_path != null ? `url("https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}")` : "linear-gradient(#EEEEEE, #00cdd7)",
     }
 
     useEffect(()=>{
@@ -18,7 +19,7 @@ function MovieView() {
         .then(response=>{
             setMovieDetails(response)
             setIsLoading(false)
-            console.log(response)
+            // console.log(response)
         })
     },[id])
 
@@ -63,10 +64,10 @@ function MovieView() {
                         <div className="container p-0 pt-5">
                             <div className="row">
                                 <div className="col-md-3">
-                                    <img className="img-fluid detail-poster" src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} alt={movieDetails.original_title}/>
+                                    <img className="img-fluid detail-poster" src={ movieDetails.poster_path != null ? `https://image.tmdb.org/t/p/original${movieDetails.poster_path}` : poster} alt={movieDetails.original_title}/>
                                 </div>
                                 <div className="col-md-9">
-                                    <h6 className="stickey-tabs">{movieDetails.vote_average.toFixed(1)}</h6>&emsp;
+                                    <h6 className="stickey-tabs">{movieDetails.vote_average.toFixed(1)} / 10</h6>&emsp;
                                     <h6 className="stickey-tabs">{timeConvert(movieDetails.runtime)}</h6>&emsp;
                                     <h6 className="stickey-tabs">{movieDetails.original_language.toUpperCase()}</h6>
 

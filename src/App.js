@@ -5,6 +5,7 @@ import {Routes,Route} from "react-router-dom";
 import SearchView from './components/SearchView';
 import { useState, useEffect } from 'react';
 import MovieView from './components/MovieView';
+import MovieNotFound from './components/MovieNotFound';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/search" element={<SearchView keyword={searchText} searchResult={searchResult}/>}></Route>
         <Route path="/movies/:id" element={<MovieView/>}></Route>
+        <Route path="*" element={<MovieNotFound text="Error 404 - The Page you're searching for is not found!"/>}></Route>
         
       </Routes>
 

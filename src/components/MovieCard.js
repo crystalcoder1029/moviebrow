@@ -1,10 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import poster from '../default-poster.png'
 
 function MovieCard({movie}) {
 
 var description = movie.overview.substring(0, 140) + "...";
 var imagePath = `http://image.tmdb.org/t/p/w500${movie.poster_path}`
+if(movie.poster_path == null){
+  imagePath = poster
+}
 const movieDetails = `/movies/${movie.id}`
 
   return (
